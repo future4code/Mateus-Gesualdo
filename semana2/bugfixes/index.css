@@ -123,6 +123,11 @@ td button:hover {
     opacity: 100%;
 }
 
+input {
+    border: none;
+    border-bottom: 2px solid black;
+}
+
 #back-button {
     background-color: white;
     width: 100px;
