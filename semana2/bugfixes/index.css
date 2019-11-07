@@ -31,6 +31,10 @@ button:active {
     color: white;
 }
 
+input:focus, button:focus {
+    outline: none;
+}
+
 img {
     width: 30px;
 }
