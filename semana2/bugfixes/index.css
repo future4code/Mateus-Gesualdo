@@ -132,6 +132,14 @@ td button:hover {
     opacity: 100%;
 }
 
+.icone:hover{
+    opacity: 50%
+}
+
+.icone:active{
+    opacity: 100%
+}
+
 input {
     border: none;
     border-bottom: 2px solid black;
