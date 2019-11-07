@@ -17,6 +17,12 @@ h2 {
     text-align: center;
 }
 
+ol{
+   width:230px;
+   margin:auto;
+   
+}
+
 input {
     height: 20px;
     width: 500px;
