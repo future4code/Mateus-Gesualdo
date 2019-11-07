@@ -19,8 +19,7 @@ h2 {
 
 ol{
    width:230px;
-   margin:auto;
-   
+   margin:auto;   
 }
 
 input {
@@ -28,7 +27,7 @@ input {
     width: 500px;
 }
 
-button:focus {
+button:active {
     color: white;
 }
 
@@ -146,4 +145,8 @@ input {
 
 #back-button:hover {
     background-color: #635a3d
+}
+
+#back-button:active {
+    color: white
 }
