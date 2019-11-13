@@ -1,0 +1,51 @@
+*{
+	margin:0;
+	padding:0;
+	text-align: center;
+}
+header, footer, h2{
+	background-color: chocolate;
+	padding:10px 0;
+	text-align: center;
+}
+h2{
+	
+}
+li.inline, a{
+	display: inline-block;
+	text-decoration: underline;
+	margin-left: 10px;
+	
+}
+nav li{
+	width:12%; 
+	text-align: right;
+	padding:10px 0;
+	color:white;
+}
+nav{
+	position:sticky;
+	top:0;
+	background-color: blue;
+}
+section 
+#sobre div, #sobre p{
+	display: inline-block;
+	justify-content: justify;
+}
+
+
+
+img{
+	width:100px;
+}
+ol{
+	margin-left: 15px;
+}
+input, label, textarea{
+	display:block;
+	margin-left:30%;
+	text-align: left;
+	
+}footer li{
+	width:22%;
