@@ -1,0 +1,27 @@
+*{	
+	box-sizing: border-box;		
+	margin:0;
+	border-collapse: collapse;
+}
+
+body, #agenda{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-image: url('background.png');
+}
+#agenda{
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+#agenda div{
+	border: 1px solid black;
+	min-width: 300px;
+	min-height: 300px;
+}	
+header, #agenda,h2{
+	border-bottom: solid;
+}
+span,button,div{
+	margin-top: 5%;
+}	
