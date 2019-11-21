@@ -1,3 +1,5 @@
+let postagens = []
+
 class post {
 	constructor (data,titulo,autor,conteudo) {
 		this.data = data
@@ -8,9 +10,18 @@ class post {
 }
 
 document.querySelector('button').onclick = function () {
-	data = document.getElementById('data').value
-	titulo = document.getElementById('titulo').value
-	autor = document.getElementById('autor').value
-	conteudo = document.querySelector('textarea').value
-	novoPost = new post (data,titulo,autor,conteudo)
+	data = document.getElementById('data')
+	titulo = document.getElementById('titulo')
+	autor = document.getElementById('autor')
+	conteudo = document.querySelector('textarea')
+	novoPost = new post (data.value, titulo.value, autor.value, conteudo.value)
+	postagens.push(novoPost)
+	console.log(postagens)
+	data.value = null
+	titulo.value = null
+	autor.value = null
+	conteudo.value = null
 }
+
+
+	
