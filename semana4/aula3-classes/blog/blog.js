@@ -1,5 +1,9 @@
 let postagens = [], data, titulo, autor, conteudo, imagem, novoPost
 
+postagens.push(JSON.parse(localStorage.getItem("postagens")))
+
+	
+
 class post {
 	constructor (data,titulo,autor,conteudo, imagem) {
 		this.data = data
@@ -23,19 +27,23 @@ document.querySelector('button').onclick = function () {
 	titulo.value = null
 	autor.value = null
 	conteudo.value = null
-	document.querySelector('section').innerHTML += 
-		'<article style="background-image: url(\''+
-		novoPost.imagem+
-		'\')"><h2>'+
-		novoPost.titulo+
-		'</h2><p>'+
-		novoPost.conteudo+
-		'</p><p><em>Autor:</em> '+
-		novoPost.autor+
-		'</p><p><em>Publicado em:</em> '+
-		novoPost.data+
-		'</p></article>'
+	localStorage.setItem("postagens", JSON.stringify(postagens))	
+}
+
+
+function exibe () {
+ 	for (let postagem of postagens){
+	 	document.querySelector('section').innerHTML += 
+			'<article style="background-image: url(\''+
+			postagem.imagem+
+			'\')"><h2>'+
+			postagem.titulo+
+			'</h2><p>'+
+			postagem.conteudo+
+			'</p><p><em>Autor:</em> '+
+			postagem.autor+
+			'</p><p><em>Publicado em:</em> '+
+			postagem.data+
+			'</p></article>'
 	}
-
-
-	
+}		
