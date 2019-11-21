@@ -1,4 +1,4 @@
-let postagens = []
+let postagens = [], data, titulo, autor, conteudo, novoPost
 
 class post {
 	constructor (data,titulo,autor,conteudo) {
@@ -21,7 +21,17 @@ document.querySelector('button').onclick = function () {
 	titulo.value = null
 	autor.value = null
 	conteudo.value = null
-}
+	document.querySelector('section').innerHTML += 
+		'<article><h2>'+
+		novoPost.titulo+
+		'</h2><p>'+
+		novoPost.conteudo+
+		'</p><p><em>Autor:</em> '+
+		novoPost.autor+
+		'</p><p><em>Publicado em:</em> '+
+		novoPost.data+
+		'</p></article>'
+	}
 
 
 	
