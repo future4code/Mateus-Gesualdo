@@ -1,11 +1,12 @@
-let postagens = [], data, titulo, autor, conteudo, novoPost
+let postagens = [], data, titulo, autor, conteudo, imagem, novoPost
 
 class post {
-	constructor (data,titulo,autor,conteudo) {
+	constructor (data,titulo,autor,conteudo, imagem) {
 		this.data = data
 		this.titulo = titulo
 		this.autor = autor
 		this.conteudo = conteudo
+		this.imagem = imagem
 	}
 }
 
@@ -14,7 +15,8 @@ document.querySelector('button').onclick = function () {
 	titulo = document.getElementById('titulo')
 	autor = document.getElementById('autor')
 	conteudo = document.querySelector('textarea')
-	novoPost = new post (data.value, titulo.value, autor.value, conteudo.value)
+	imagem = document.getElementById('imagem')
+	novoPost = new post (data.value, titulo.value, autor.value, conteudo.value, imagem.value)
 	postagens.push(novoPost)
 	console.log(postagens)
 	data.value = null
@@ -22,7 +24,9 @@ document.querySelector('button').onclick = function () {
 	autor.value = null
 	conteudo.value = null
 	document.querySelector('section').innerHTML += 
-		'<article><h2>'+
+		'<article style="background-image: url(\''+
+		novoPost.imagem+
+		'\')"><h2>'+
 		novoPost.titulo+
 		'</h2><p>'+
 		novoPost.conteudo+
