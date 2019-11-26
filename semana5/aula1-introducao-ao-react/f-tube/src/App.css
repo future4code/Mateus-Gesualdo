@@ -1,0 +1,43 @@
+.App {
+  min-height: 100vh;
+  text-align: center;
+  display: grid;
+  grid-template-rows: 1fr 8fr 1fr;
+}
+
+*{
+  margin:0;
+  padding:0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+header, footer, article{
+  background-color: #ff000033;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+main, section{
+  display: grid;
+  grid-template-columns: 1fr 5fr
+}
+nav{
+  border-right: solid #ff000033;
+}
+section{
+  grid-template-columns: 1fr 1fr 1fr 1fr
+}
+article{
+  border: 1px solid green;
+  width:250px;
+  margin:3%;
+  height: 170px;
+}
+
+img{
+  width: 100%;
+
+}
