@@ -1,0 +1,12 @@
+div.BigCard{
+	border: 1px solid black;
+	width: 300px;
+	margin:auto;
+	box-sizing: border-box;
+}
+
+img.BigCard{
+	width:100px;
+	border-radius: 50px;
+	padding-right:0.5em;
+}
