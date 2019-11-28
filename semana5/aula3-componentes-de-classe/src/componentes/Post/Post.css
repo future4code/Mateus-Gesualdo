@@ -1,0 +1,34 @@
+.PostContainer{
+	width:300px;
+	margin:20px auto;
+	border: 1px solid silver;
+}
+
+.PostContainer *{
+	box-sizing: border-box;
+	margin:0;
+	padding:0;
+}
+
+header.Post{
+	display: flex;
+	align-items: center;
+}
+
+span.Post{
+	margin-left: 1em;
+}
+
+img.Post {
+	width:40px;
+}
+
+article img.Post{
+	width: 100%
+}
+
+section.Post{
+	display: flex;
+	flex-direction: row nowrap;
+	justify-content: space-between;
+}
