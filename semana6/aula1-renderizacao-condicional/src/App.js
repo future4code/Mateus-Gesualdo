@@ -7,10 +7,10 @@ import './App.css'
 
 let i=0 , 
 	etapa =[
-		<Etapa1/>,
-		<Etapa2/>,
-		<Etapa3/>,
-		<Etapa4/>,
+		<Etapa1/> ,
+		<Etapa2/> ,
+		<Etapa3/> ,
+		<Etapa4/> ,
 		
 	]
 
