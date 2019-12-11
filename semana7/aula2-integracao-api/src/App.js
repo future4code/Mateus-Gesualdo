@@ -42,14 +42,16 @@ class App extends React.Component {
   }
 
   apagar = (id) => {
-    axios.delete(`${baseUrl}/users/deleteUser?id=${id}`, headers ).then(
-      () => {
-        alert("Usuário removido!")
-        this.buscarUsuarios()
-      }
-    ).catch(
-      error => alert(error)
-    )
+    if (window.confirm("Remover usuário?")) {
+      axios.delete(`${baseUrl}/users/deleteUser?id=${id}`, headers ).then(
+        () => {
+          alert("Usuário removido!")
+          this.buscarUsuarios()
+        }
+      ).catch(
+        error => alert(error)
+      )
+    }
   }
 
   render(){
@@ -64,7 +66,11 @@ class App extends React.Component {
         }
 
         <button onClick={ () => this.setState({inicio: !this.state.inicio}) }>
-          { this.state.inicio ? "Usuários Cadastrados" : "Voltar" }
+          { this.state.inicio ? 
+            "Usuários Cadastrados" 
+            : 
+            "Voltar" 
+          }
         </button>
 
       </div>

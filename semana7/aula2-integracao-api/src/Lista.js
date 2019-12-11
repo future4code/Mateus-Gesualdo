@@ -4,24 +4,42 @@ import styled from 'styled-components';
 const Div = styled.div`
     display:flex;
     justify-content: space-between
-`
+` 
+  
+export default class Usuarios extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {email:''}
+    }
+     
+    render(){
+        return(
+            <div>
+    
+                <h2>Usuários Cadastrados:</h2>
+    
+                {
+                    this.props.cadastros.map(
+                        cadastro => (
+                                                           
+                            <Div key={cadastro.id} >
 
-export default function Usuarios(props){
-    return(
-        <div>
+                                {cadastro.name}
 
-            <h2>Usuários Cadastrados:</h2>
+                                <button 
+                                    id={cadastro.id} 
+                                    onClick={ev => {this.props.apagar(ev.target.id)} }
+                                >
+                                    x
+                                </button>
 
-            {
-                props.cadastros.map(
-                    cadastro => (
-                        <Div key={cadastro.id} id={cadastro.id} >
-                            {cadastro.name}
-                            <button onClick={ev => {props.apagar(ev.target.parentNode.id)} }>x</button>
-                        </Div>
+                            </Div>
+                           
+                        )
                     )
-                )
-            }
-        </div>
-    )
-}
+                }
+            </div>
+        )
+    }
+    
+}// && this.mostrarEmail(cadastro.id)
