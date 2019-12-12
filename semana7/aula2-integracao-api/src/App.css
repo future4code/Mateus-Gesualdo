@@ -1,0 +1,8 @@
+.App {
+  align-items: space-around;
+  text-align: center;
+  width:300px;
+  margin:auto
+}
+
+.App>*{margin-top:50px}
