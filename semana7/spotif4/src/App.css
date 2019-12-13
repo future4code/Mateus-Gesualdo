@@ -1,0 +1,27 @@
+.App {
+  text-align:center;
+  background-color: #323b3f;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color:#f57f20;
+}
+
+.App>*{
+  margin-top:1em;
+}
+
+.App button{
+  color:white;
+  background-color:#f57f20
+}
+
+section {
+  display:flex;
+  justify-content: space-between;
+  width: 300px;
+  border: 1px dotted white;
+}
