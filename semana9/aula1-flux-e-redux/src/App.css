@@ -20,8 +20,14 @@ ul {
   padding-inline-start:0;
   margin:0
 }
-section input{width:240px;}
-section button{width:60px;}
+section input{
+  width:240px;
+}
+
+section button{
+  width:60px;
+}
+
 li {
   width:300px;
   display:flex;
