@@ -8,6 +8,7 @@ import {mdiAccountMultipleCheck} from '@mdi/js'
 import {swipeLeft, swipeRight} from '../../components/UserSwipeCard/styled'
 import {updateCurrentPage} from '../../actions/route'
 import {Loader} from '../../components/Loader'
+import { getProfile } from '../../actions/profiles'
 
 export class SwipeScreen extends Component {
 	constructor(props) {
@@ -65,6 +66,7 @@ export class SwipeScreen extends Component {
 						<OptionButton onClick={this.onChooseOption('like')} option="like">♥️</OptionButton>
 					</ButtonsWrapper>
 				</ContentWrapper>
+				{console.log(profileToSwipe)}
 			</SwipeScreenWrapper>
 		)
 	}
@@ -78,11 +80,13 @@ SwipeScreen.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
+	profileToSwipe: state.profileToSwipe
 })
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		goToMatchScreen: () => dispatch(updateCurrentPage('MatchScreen')),
+		getProfileToSwipe: () => dispatch(getProfile())
 	}
 }
 
