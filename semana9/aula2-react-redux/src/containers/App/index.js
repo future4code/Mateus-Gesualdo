@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
 import { createTaskAction } from "../../actions/taskActions";
 import { updateDescriptionAction } from "../../actions/taskActions";
+import TaskCard from "../TaskCard"
 
-const App = props => {
+function App (props) {
   
   return (
     <div className="App">      
@@ -15,22 +15,32 @@ const App = props => {
         <hr/>
       </section>
       <ul>
-        {props.taskList.map(
-          task => (
-            <li>
-              {task}
-            </li>            
+        {props.taskList.filter(
+          (tas) => (
+            props.filter === "Todas" 
+          )
+        ).map(
+          (task, i) => (
+            <TaskCard key={i} task={task.description} complete={task.complete} id={task.id} />                       
           )
         )}
-      </ul>            
+      </ul>  
+      Exibindo:
+      <select>
+        <option>Todas</option>
+        <option>Completas</option>
+        <option>Pendentes</option>
+      </select>          
     </div>
   );
+  
 };
 
 const mapStateToProps = state => {
   return {    
     taskList: state.tasks.taskList,
-    newDescription: state.tasks.newDescription
+    newDescription: state.tasks.newDescription,
+    filter: state.tasks.filter
   };
 };
 
