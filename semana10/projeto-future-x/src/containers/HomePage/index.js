@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 import styled from "styled-components";
 import { routes } from "../Router"
+import logo from "../../images/logo.png"
 
-const HomeWrapper = styled.form`
+const HomeWrapper = styled.div`
   width: 100%;
   height: 100vh;
   gap: 10px;
@@ -14,6 +13,18 @@ const HomeWrapper = styled.form`
   justify-items: center;
   display: grid;
 `;
+
+export const Button = styled.button`
+  width:300px;
+  height:50px;
+  background-color:orange;
+  Font-size:20px;
+  color:blue;
+`
+
+const LoginButton = styled.button`
+  margin-left:200px
+`
 
 class HomePage extends Component {
   constructor(props) {
@@ -26,9 +37,9 @@ class HomePage extends Component {
   render() {
     return (
       <HomeWrapper>
-        Home Page
-        <button onClick={this.props.goToLoginPage}>Login</button>
-        <button onClick={this.props.goToTripListPage}>Escolher uma Viagem</button>
+        <LoginButton onClick={this.props.goToLoginPage}>Login</LoginButton>
+        <img src={logo}/>
+        <Button onClick={this.props.goToTripListPage}>Escolher uma Viagem</Button>
         <button onClick={this.props.goToTripCreationPage}>Criar uma Viagem</button>
       </HomeWrapper>
     );

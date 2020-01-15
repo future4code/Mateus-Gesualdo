@@ -1,20 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 import styled from "styled-components";
 import { routes } from "../Router"
-import tripReducer from "../../reducers/trips"
 import { fetchTripList } from "../../actions/trips"
 
-const TripListWrapper = styled.form`
+const Wrapper = styled.form`
   width: 100%;
-  height: 100vh;
-  gap: 10px;
-  place-content: center;
-  justify-items: center;
-  display: grid;
+  height: 100vh;  
+  justify-content: space-around;
+  flex-direction:column;
+  align-items:center;
+  display: flex;
 `;
 
 class TripListPage extends Component {
@@ -31,9 +28,16 @@ class TripListPage extends Component {
 
   render() {
     return (
-      <TripListWrapper>
-        {this.props.tripList.map(trip=>trip.name)}        
-      </TripListWrapper>
+      <Wrapper>
+        {this.props.tripList.map(
+          trip=> (
+            <div>
+              <h2>{trip.name}</h2>
+              <button onClick={this.props.goToTripDetailsPage}>Ver detalhes</button>
+            </div>            
+          )
+        )}        
+      </Wrapper>
     );
   }
 }
@@ -47,7 +51,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchTripList: () => dispatch(fetchTripList())
+    fetchTripList: () => dispatch(fetchTripList()),
+    goToTripDetailsPage: () => dispatch(push(routes.tripDetails))
   }
   
 }

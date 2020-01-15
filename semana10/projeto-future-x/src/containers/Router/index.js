@@ -5,15 +5,17 @@ import LoginPage from "../LoginPage";
 import HomePage from "../HomePage";
 import TripListPage from "../TripListPage";
 import TripCreationPage from "../TripCreationPage";
-
-
+import TripDetailsPage from "../TripDetailsPage";
+import TripApplicationPage from "../TripApplicationPage"
 
 
 export const routes = {
   root: "/",
   login: "/login",
   tripList: "/trips/list",
-  tripCreation: "/trips/create"
+  tripCreation: "/trips/create",
+  tripDetails: "/trips/details",
+  tripApplication: "/trips/apply",
   // Outras rotas aqui
 };
 
@@ -25,6 +27,8 @@ function Router(props) {
         <Route exact path={routes.login} component={LoginPage} />
         <Route exact path={routes.tripList} component={TripListPage} />
         <Route exact path={routes.tripCreation} component={TripCreationPage} />
+        <Route exact path={routes.tripDetails} component={TripDetailsPage} />TripApplicationPage
+        <Route exact path={routes.tripApplication} component={TripApplicationPage} />
       </Switch>
     </ConnectedRouter>
   );

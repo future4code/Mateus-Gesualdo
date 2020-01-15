@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { push } from "connected-react-router";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
+import { fetchToken } from '../../actions/users'
 
 const LoginWrapper = styled.form`
   width: 100%;
@@ -48,10 +48,16 @@ class LoginPage extends Component {
           label="Password"
           value={password}
         />
-        <Button>Login</Button>
+        <Button onClick={() => this.props.fetchToken(email, password)}>Login</Button>
       </LoginWrapper>
     );
   }
 }
 
-export default LoginPage;
+function mapDispatchToProps (dispatch) {
+  return {
+    fetchToken: (email, password) => dispatch(fetchToken(email, password))
+  } 
+} 
+
+export default connect(null, mapDispatchToProps)(LoginPage);
