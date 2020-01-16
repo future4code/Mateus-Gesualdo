@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { fetchTripList } from "../../actions/trips"
-//import { submitApplication } from "../../actions/users"
+import { submitApplication } from "../../actions/users"
 import { countries } from "./countries"
 
 const Wrapper = styled.form`
   width: 100%;
-  height: 100vh;
-  gap: 10px;
-  place-content: center;
-  justify-items: center;
-  display: grid;
+  height: 100vh;  
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction:column
 `;
 
 class TripApplicationPage extends Component {
@@ -22,13 +22,8 @@ class TripApplicationPage extends Component {
       age: '',
       applicationText: '',
       profession: '',
-      country: '',
-      tripId: '',
+      country: '',      
     };
-  }
-
-  componentDidMount () {
-    this.props.fetchTripList()
   }
 
   handleInputs = (ev) => {
@@ -40,35 +35,69 @@ class TripApplicationPage extends Component {
     const { name, age, applicationText, profession, country, tripId } = this.state
     return (
       <Wrapper>
-        <form>
-          <label forHtml="">Nome:</label><br/>
-          <input id="name" type="text" name="name" value={name} onChange={this.handleInputs}/><hr/>
-          <label forHtml="">Idade:</label><br/>
-          <input id="age" type="number" name="age" value={age} onChange={this.handleInputs}/><hr/>
-          <label forHtml="applicationText">Por quê você é um bom candidato a essa viagem?:</label><br/>
-          <textarea id="applicationText" type="text" name="applicationText" value={applicationText} onChange={this.handleInputs}/><hr/>
-          <label forHtml="profession">Profissão:</label><br/>
-          <input id="profession" type="text" name="profession" value={profession} onChange={this.handleInputs}/><hr/>
-          <label forHtml="">País de origem:</label><br/>
-          <select id="country" name="country" value={country} onChange={this.handleInputs}>            
-            <option>Selecione o país</option>
-            {countries.map(
-              country => (
-                <option>{country}</option>
-              )
-            )}         
-          </select><hr/>
-          <label forHtml="tripId">Viagem:</label><br/>
-          <select id="tripId" name="tripId" value={tripId} onChange={this.handleInputs}>            
-            <option>Selecione a viagem</option>
-            {this.props.tripList.map(
-              trip => (
-                <option value={trip.id}>{trip.planet}</option>
-              )
-            )}              
-          </select><hr/>         
-          <button >FINALIZAR</button>
-        </form>        
+        <label forhtml="">Nome:</label><br/>
+        <input required
+          id="name" 
+          type="text" 
+          name="name" 
+          value={name} 
+          onChange={this.handleInputs} 
+          pattern="[a-zA-Z]{3,}" 
+          title="Apenas letras  (mínimo 3)" 
+          placeholder="Apenas letras  (mínimo 3)"
+        /><hr/>
+        <label forhtml="">Idade:</label><br/>
+        <input required
+          id="age" 
+          type="number" 
+          name="age" 
+          value={age} 
+          onChange={this.handleInputs}
+          min="18"
+          title="Mínimo 18 anos" 
+          placeholder="Mínimo 18 anos"
+        /><hr/>
+        <label forhtml="applicationText">Por quê você é um bom candidato a essa viagem?</label><br/>
+        <input required
+          id="applicationText" 
+          type="text" 
+          name="applicationText" 
+          value={applicationText} 
+          onChange={this.handleInputs}
+          pattern="[a-zA-Z]{30,}" 
+          title="Apenas letras  (mínimo 30)" 
+          placeholder="Apenas letras  (mínimo 30)"
+        /><hr/>
+        <label forhtml="profession">Profissão:</label><br/>
+        <input required
+          id="profession" 
+          type="text" 
+          name="profession" 
+          value={profession} 
+          onChange={this.handleInputs}
+          pattern="[a-zA-Z]{10,}" 
+          title="Apenas letras  (mínimo 10)" 
+          placeholder="Apenas letras  (mínimo 10)"
+        /><hr/>
+        <label forhtml="">País de origem:</label><br/>
+        <select required id="country" name="country" value={country} onChange={this.handleInputs}>            
+          <option>Selecione o país</option>
+          {countries.map(
+            country => (
+              <option>{country}</option>
+            )
+          )}         
+        </select><hr/>
+              
+        <button 
+          onClick={ 
+            () => this.props.submitApplication(
+              name, age, applicationText, profession, country, this.props.tripId
+            ) 
+          } 
+        >
+          Enviar
+        </button>                
       </Wrapper>
     );
   }
@@ -76,15 +105,16 @@ class TripApplicationPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    tripList: state.trips.tripList
+    tripId: state.trips.selectedTripId
   }
   
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchTripList: () => dispatch(fetchTripList()),
-   // submitApplication: (data) => dispatch(submitApplication(data))
+    submitApplication: ( name, age, applicationText, profession, country, tripId ) => (
+      dispatch(submitApplication( name, age, applicationText, profession, country, tripId ))
+    )
   }
   
 }

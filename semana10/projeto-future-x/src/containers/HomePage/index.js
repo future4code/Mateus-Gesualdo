@@ -8,22 +8,26 @@ import logo from "../../images/logo.png"
 const HomeWrapper = styled.div`
   width: 100%;
   height: 100vh;
-  gap: 10px;
-  place-content: center;
-  justify-items: center;
-  display: grid;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-evenly;
+  align-items: center;      
 `;
 
 export const Button = styled.button`
   width:300px;
   height:50px;
-  background-color:orange;
-  Font-size:20px;
-  color:blue;
+  background-color:rgb(255,95,0);
+  Font-size:20px;  
 `
 
 const LoginButton = styled.button`
-  margin-left:200px
+  margin-left:200px;
+  position:absolute;
+  top:0;
+  right:0;  
+  background-color:rgb(255,95,0);
+  color:white;
 `
 
 class HomePage extends Component {
@@ -35,12 +39,13 @@ class HomePage extends Component {
   }
 
   render() {
+    // <button onClick={this.props.goToTripCreationPage}>Criar uma Viagem</button>
     return (
       <HomeWrapper>
         <LoginButton onClick={this.props.goToLoginPage}>Login</LoginButton>
-        <img src={logo}/>
+        <img width="300" src={logo}/>
         <Button onClick={this.props.goToTripListPage}>Escolher uma Viagem</Button>
-        <button onClick={this.props.goToTripCreationPage}>Criar uma Viagem</button>
+       
       </HomeWrapper>
     );
   }

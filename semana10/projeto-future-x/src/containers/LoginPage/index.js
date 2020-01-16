@@ -34,14 +34,14 @@ class LoginPage extends Component {
 
     return (
       <LoginWrapper>
-        <TextField
+        <TextField required
           onChange={this.handleFieldChange}
           name="email"
           type="email"
           label="E-mail"
           value={email}
         />
-        <TextField
+        <TextField required
           onChange={this.handleFieldChange}
           name="password"
           type="password"
