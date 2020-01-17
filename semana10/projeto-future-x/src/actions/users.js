@@ -19,8 +19,7 @@ export const fetchToken = (email, password) => async (dispatch) => {
     }
 }
 
-export const submitApplication = (name, age, applicationText, profession, country, tripId) => async () => {
-    const token = window.localStorage.getItem("token")    
+export const submitApplication = (name, age, applicationText, profession, country, tripId) => async (dispatch) => {
     try {
         const response = await axios.post(
             `https://us-central1-missao-newton.cloudfunctions.net/futureX/mateus/trips/${tripId}/apply`,
@@ -30,15 +29,36 @@ export const submitApplication = (name, age, applicationText, profession, countr
                 "applicationText": applicationText,
                 "profession": profession,
                 "country": country                
+            } 
+        )  
+        alert("Sucesso!")  
+        dispatch(push(routes.tripList))
+    } catch (err) {
+        alert("Ocorre um erro, tente novamente")
+        console.log(err)
+    
+    }
+    
+    
+} 
+
+export const approveCandidate = (tripId, candidateId, decision) => async () => {
+    const token = window.localStorage.getItem("token") 
+    try {
+        await axios.put(
+            `https://us-central1-missao-newton.cloudfunctions.net/futureX/mateus/trips/${tripId}/candidates/${candidateId}/decide`,
+            {               
+                "approve": decision,                         
             } ,
             {
                 headers: {
                     auth: token
                 }
-            } 
+            }
         )  
-        console.log(response)  
+        alert("Sucesso!")  
     } catch (err) {
+        alert("Ocorreu um erro, tente novamente")
         console.log(err)
     
     }

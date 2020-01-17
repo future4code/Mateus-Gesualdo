@@ -1,8 +1,23 @@
 import axios from "axios"
+import {routes} from "../containers/Router"
+import {push} from "connected-react-router"
 
-export const fetchTripList = () => async (dispatch, getState) => {
-    const response = await axios.get("https://us-central1-missao-newton.cloudfunctions.net/futureX/mateus/trips")    
-    dispatch(setTripList(response.data.trips))
+export const fetchTripList = () => async (dispatch) => {
+    const token = window.localStorage.getItem("token")
+    try{
+        const response = await axios.get(
+            "https://us-central1-missao-newton.cloudfunctions.net/futureX/mateus/trips", 
+            {
+                headers: {
+                    auth: token
+                }
+            }
+        )    
+        dispatch(setTripList(response.data.trips))
+    } catch (err) {
+        alert("Ocorreu um erro")
+        console.log(err)
+    }
 }
 
 const setTripList = tripList => ({
@@ -38,3 +53,30 @@ const setTripDetails = tripDetails => ({
         tripDetails
     }
 })
+
+export const createTrip = (name, planet, date, description, durationInDays) => async (dispatch) => {
+    const token = window.localStorage.getItem("token")  
+    try{ 
+        await axios.post(
+            `https://us-central1-missao-newton.cloudfunctions.net/futureX/mateus/trips`,
+            {
+                "name": name, 
+                "planet": planet, 
+                "date": date, 
+                "description": description, 
+                "durationInDays": durationInDays
+            },
+            {
+                headers: {
+                    auth: token
+                }
+            }
+        ) 
+        alert("Viagem criada!")
+        dispatch(push(routes.tripList))
+    } catch (e) {
+        alert("Ocorreu um erro, tente novamente")
+        console.log(e)
+    }
+}
+

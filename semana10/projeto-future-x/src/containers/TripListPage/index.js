@@ -54,12 +54,13 @@ class TripListPage extends Component {
           trip =>             
             <H2 
               id={trip.id}
+              key={trip.id}
               onClick={(ev) => this.setDetailsPageContent(ev.target.id)}
             >
               {trip.name}
             </H2>  
         )}  
-        <button>Criar Viagem</button>      
+        {token && <button onClick={this.props.goToTripCreationPage} >Criar Viagem</button> }     
       </Wrapper>
     );
   }
@@ -76,6 +77,7 @@ function mapDispatchToProps(dispatch) {
   return {
     fetchTripList: () => dispatch(fetchTripList()),
     goToTripDetailsPage: () => dispatch(push(routes.tripDetails)),
+    goToTripCreationPage: () => dispatch( push( routes.tripCreation ) ),
     setTripId: (id) => dispatch(setTripId(id)),
   }
   
