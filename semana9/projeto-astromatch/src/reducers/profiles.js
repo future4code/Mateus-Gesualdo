@@ -1,10 +1,14 @@
-const initialState = {profileToSwipe: "ok1"}
+const initialState = {
+  profileToSwipe: '', 
+  matches: []
+}
 
 const profiles = (state = initialState, action) => {
   switch (action.type) {
     case "SET_PROFILE":
-      console.log(action.payload.profile)
       return {...state, profileToSwipe: action.payload.profile }
+    case "SET_MATCHES":
+      return {...state, matches: action.payload.matches }
     default:
       return state
   }  

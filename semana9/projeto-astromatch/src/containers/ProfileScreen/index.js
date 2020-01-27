@@ -6,6 +6,7 @@ class ProfileScreen extends React.Component {
   render() {
     return (
       <div>
+        ProfileScreen
       </div>
     )
   }
