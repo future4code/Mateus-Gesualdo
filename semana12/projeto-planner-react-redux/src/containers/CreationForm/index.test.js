@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import {shallow} from 'enzyme'
-import { CreationForm } from './index'
+import { CreationForm, Form, Input } from './index'
 
 describe("Testes do formulário", () => {
     
@@ -15,15 +15,25 @@ describe("Testes do formulário", () => {
 
     })
 
-    test("Deve chamar a funcao handleInputChange ao clicar no botão", () => {
-		
-		const setState = jest.fn()
-        const component = shallow(<CreationForm/>)
-		const TextField = component.find(TextField)
+    test("Deve chamar a funcao handleSubmission ao clicar no botão", () => {
+        
+        const handleSubmission = jest.fn()
+        const component = shallow(<Form  onSubmit={handleSubmission}/> )
+                
+        component.simulate("submit")
 
-		TextField.simulate('change')
+		expect(handleSubmission).toHaveBeenCalledTimes(1)
+    })  
 
-		expect(setState).toHaveBeenCalledTimes(1)
-	})
+    test("Deve chamar a funcao setTask ao digitar uma nova tarefa", () => {
+        
+        const setTask = jest.fn()
+        const component = shallow(<Form ><Input onChange={setTask}/></Form> )
+        const input = component.find(Input)
+               
+        input.simulate("change")
+
+		expect(setTask).toHaveBeenCalledTimes(1)
+    })  
 
 })

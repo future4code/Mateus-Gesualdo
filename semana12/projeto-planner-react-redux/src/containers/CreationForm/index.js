@@ -1,76 +1,72 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button'
+import React, { useState } from 'react';
 import { connect } from 'react-redux'
-//import { create } from '../../actions'
+import { create } from '../../actions'
+import styled from 'styled-components'
 
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     '& > *': {
-//       margin: 'theme.spacing(1)',
-//       width: 200,
-//     },
-//   },
-// }));
+export const Button = styled.button`
+    border-radius: 3px;
+    background-color: violet;
+`
+export const Form = styled.form`
+    display: flex;
+`
+export const Input = styled.input`
+   
+`
 
-export class CreationForm extends React.Component {
+export function CreationForm(props) {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            newTask: ''
-        }
-    }
+    const [newTask, setTask] = useState({})
 
-    handleInputChange = ev => {
-        this.setState(
-            { newTask: ev.target.value }
-        )
-    }
-
-    handleFormSubmission = ev => {
-        const { newTask } = this.state
+    const handleSubmission = ev => {
         ev.preventDefault()
-        this.props.create(newTask)
+        props.create(newTask) // console.log(newTask) 
+        setTask({text: '', day: 'Segunda'})
     }
 
-    render() {
+    const handleChange = ev => {
+        setTask({
+            ...newTask,
+            [ev.target.name]: ev.target.value
+        })
+    }
 
-        //   const classes = useStyles();
+    return (
 
-        return (
+        <Form
+            onSubmit={handleSubmission}
+            className={'classes.root'}
+        >
 
-            <form
-                onSubmit={this.handleFormSubmission}
-                className={'classes.root'}
-                noValidate
-                autoComplete="off"
+            <Input
+                name="text"
+                value={newTask.text}
+                onChange={handleChange}
+                placeholder="Nova Tarefa"
+                required
+            />
+            <select
+                name="day"
+                value={newTask.day}
+                onChange={handleChange}
             >
+                <option>Segunda</option>
+                <option>Terça</option>
+                <option>Quarta</option>
+                <option>Quinta</option>
+                <option>Sexta</option>
+                <option>Sábado</option>
+                <option>Domingo</option>
+            </select>
+            <Button type="submit">Salvar</Button>
+        </Form>
+    );
 
-                <TextField
-                    value={this.state.newTask}
-                    onChange={this.handleInputChange}
-                    color="primary"
-                    label="Nova Tarefa"
-                    variant="outlined"
-                    required
-                />
-                <Button
-                    type="submit"
-                    color="primary"
-                    variant="outlined"
-                >
-                    Salvar
-                </Button>
-            </form>
-        );
-    }
 }
 
 export default connect(
     null,
     dispatch => ({
-        //create: (newTask) => dispatch(create(newTask))
+        create: (newTask) => dispatch(create(newTask))
     })
 )(CreationForm)

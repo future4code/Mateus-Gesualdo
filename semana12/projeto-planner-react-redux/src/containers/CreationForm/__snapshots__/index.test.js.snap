@@ -2,94 +2,47 @@
 
 exports[`Testes do formulário Snapshot 1`] = `
 <form
-  autoComplete="off"
-  className="classes.root"
-  noValidate={true}
+  className="sc-bwzfXH byFnul classes.root"
   onSubmit={[Function]}
 >
-  <div
-    className="MuiFormControl-root-1"
-    color="primary"
+  <input
+    className="sc-htpNat dJGdEm"
+    name="text"
+    onChange={[Function]}
+    placeholder="Nova Tarefa"
+    required={true}
+  />
+  <select
+    name="day"
+    onChange={[Function]}
   >
-    <label
-      className="MuiFormLabel-root-16 MuiFormLabel-required-21 MuiInputLabel-required-9 MuiInputLabel-root-5 MuiInputLabel-formControl-10 MuiInputLabel-animated-13 MuiInputLabel-outlined-15"
-      data-shrink={false}
-    >
-      Nova Tarefa
-      <span
-        className="MuiFormLabel-asterisk-22"
-      >
-         *
-      </span>
-    </label>
-    <div
-      className="MuiInputBase-root-36 MuiOutlinedInput-root-23 MuiInputBase-formControl-37"
-      onClick={[Function]}
-    >
-      <fieldset
-        aria-hidden={true}
-        className="MuiPrivateNotchedOutline-root-53 MuiOutlinedInput-notchedOutline-30"
-        style={
-          Object {
-            "paddingLeft": 8,
-          }
-        }
-      >
-        <legend
-          className="MuiPrivateNotchedOutline-legend-54"
-          style={
-            Object {
-              "width": 0.01,
-            }
-          }
-        >
-          <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "&#8203;",
-              }
-            }
-          />
-        </legend>
-      </fieldset>
-      <input
-        aria-invalid={false}
-        className="MuiInputBase-input-46 MuiOutlinedInput-input-31"
-        disabled={false}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={true}
-        type="text"
-        value=""
-      />
-    </div>
-  </div>
+    <option>
+      Segunda
+    </option>
+    <option>
+      Terça
+    </option>
+    <option>
+      Quarta
+    </option>
+    <option>
+      Quinta
+    </option>
+    <option>
+      Sexta
+    </option>
+    <option>
+      Sábado
+    </option>
+    <option>
+      Domingo
+    </option>
+  </select>
   <button
-    className="MuiButtonBase-root-81 MuiButton-root-55 MuiButton-outlined-63 MuiButton-outlinedPrimary-64"
-    disabled={false}
-    onBlur={[Function]}
-    onContextMenu={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    tabIndex="0"
+    className="sc-bdVaJa iwEKKT"
     type="submit"
   >
-    <span
-      className="MuiButton-label-56"
-    >
-      Salvar
-    </span>
-    <span
-      className="MuiTouchRipple-root-84"
-    />
+    Salvar
   </button>
 </form>
 `;
