@@ -11,13 +11,18 @@ const Wrapper = styled.div`
 
 const Card = styled.div`
     width: 300px;
-    margin: 1em;
-    border: 2px dotted violet;  
-    background-color: khaki;
-    padding-left: 1em;
+    margin: 1em;     
+    background-color: rgb(250, 236, 127);
+    padding: 0 1em 3em;
+    color:black;
 `
 
-function TaskLists(props) {
+const ListItem = styled.li`
+    border-bottom: 1px solid black;
+    margin-right: 2em;
+`
+
+export function TaskLists(props) {
 
     useEffect(() => {
         props.fetchTasks()
@@ -28,13 +33,13 @@ function TaskLists(props) {
     return (
         <Wrapper>
             {days.map(day => (
-                <Card>
+                <Card key={day}>
                     <h2>{day}</h2>
                     <ul>{
                         props.taskList.filter(
                             task => task.day === day
                         ).map(
-                            task => <li>{task.text}</li>
+                            task => <ListItem key={task.id}>{task.text}</ListItem>
                         )
                     }</ul>
                 </Card>
@@ -45,10 +50,13 @@ function TaskLists(props) {
 }
 
 export default connect(
+
     state => ({
         taskList: state.tasks.list
     }),
+
     dispatch => ({
         fetchTasks: () => dispatch(fetchTasks())
     })
+
 )(TaskLists)

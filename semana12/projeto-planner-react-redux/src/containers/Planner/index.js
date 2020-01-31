@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import CreationForm from '../CreationForm'
 import TaskLists from '../TaskLists'
 import styled from 'styled-components'
+import backgroundImage from '../../images/background.jpg'
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -11,12 +12,14 @@ const Wrapper = styled.div`
   justify-content: space-evenly;
   align-items: center;
   align-content: stretch;
+  background: url(${props => props.background});
+  color:white; 
 `
 
-class Planner extends React.Component {
+export class Planner extends React.Component {
   render() {
     return (
-      <Wrapper>
+      <Wrapper background={backgroundImage}>
         <h1>Planejamento Semanal</h1>
         <CreationForm/>      
         <TaskLists/>

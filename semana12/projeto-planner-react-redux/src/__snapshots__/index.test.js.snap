@@ -2,13 +2,13 @@
 
 exports[`App Snapshot 1`] = `
 <div
-  className="sc-EHOje hAjzhW"
+  className="sc-bZQynM eMAFUZ"
 >
   <h1>
     Planejamento Semanal
   </h1>
   <form
-    className="sc-bwzfXH byFnul classes.root"
+    className="sc-bwzfXH bRcjrU classes.root"
     onSubmit={[Function]}
   >
     <input
@@ -22,6 +22,11 @@ exports[`App Snapshot 1`] = `
       name="day"
       onChange={[Function]}
     >
+      <option
+        value=""
+      >
+        Selecione um dia
+      </option>
       <option>
         Segunda
       </option>
@@ -45,7 +50,7 @@ exports[`App Snapshot 1`] = `
       </option>
     </select>
     <button
-      className="sc-bdVaJa iwEKKT"
+      className="sc-bdVaJa edZuZW"
       type="submit"
     >
       Salvar
@@ -55,7 +60,7 @@ exports[`App Snapshot 1`] = `
     className="sc-bxivhb eVGvmQ"
   >
     <div
-      className="sc-ifAKCX bmLAyC"
+      className="sc-ifAKCX gIMAUz"
     >
       <h2>
         Segunda
@@ -63,7 +68,7 @@ exports[`App Snapshot 1`] = `
       <ul />
     </div>
     <div
-      className="sc-ifAKCX bmLAyC"
+      className="sc-ifAKCX gIMAUz"
     >
       <h2>
         Terça
@@ -71,7 +76,7 @@ exports[`App Snapshot 1`] = `
       <ul />
     </div>
     <div
-      className="sc-ifAKCX bmLAyC"
+      className="sc-ifAKCX gIMAUz"
     >
       <h2>
         Quarta
@@ -79,7 +84,7 @@ exports[`App Snapshot 1`] = `
       <ul />
     </div>
     <div
-      className="sc-ifAKCX bmLAyC"
+      className="sc-ifAKCX gIMAUz"
     >
       <h2>
         Quinta
@@ -87,7 +92,7 @@ exports[`App Snapshot 1`] = `
       <ul />
     </div>
     <div
-      className="sc-ifAKCX bmLAyC"
+      className="sc-ifAKCX gIMAUz"
     >
       <h2>
         Sexta
@@ -95,7 +100,7 @@ exports[`App Snapshot 1`] = `
       <ul />
     </div>
     <div
-      className="sc-ifAKCX bmLAyC"
+      className="sc-ifAKCX gIMAUz"
     >
       <h2>
         Sábado
@@ -103,7 +108,7 @@ exports[`App Snapshot 1`] = `
       <ul />
     </div>
     <div
-      className="sc-ifAKCX bmLAyC"
+      className="sc-ifAKCX gIMAUz"
     >
       <h2>
         Domingo

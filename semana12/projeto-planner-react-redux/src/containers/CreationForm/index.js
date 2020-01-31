@@ -5,10 +5,11 @@ import styled from 'styled-components'
 
 export const Button = styled.button`
     border-radius: 3px;
-    background-color: violet;
+    background-color: darkgreen;
+    color: white;
 `
 export const Form = styled.form`
-    display: flex;
+    display: flex;    
 `
 export const Input = styled.input`
    
@@ -20,8 +21,8 @@ export function CreationForm(props) {
 
     const handleSubmission = ev => {
         ev.preventDefault()
-        props.create(newTask) // console.log(newTask) 
-        setTask({text: '', day: 'Segunda'})
+        props.create(newTask) 
+        setTask({})
     }
 
     const handleChange = ev => {
@@ -50,6 +51,7 @@ export function CreationForm(props) {
                 value={newTask.day}
                 onChange={handleChange}
             >
+                <option value={''} >Selecione um dia</option>
                 <option>Segunda</option>
                 <option>Terça</option>
                 <option>Quarta</option>

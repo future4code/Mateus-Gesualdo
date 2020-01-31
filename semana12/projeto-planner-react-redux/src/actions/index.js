@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-export const handleError = () => alert("Ocorreu um erro, tente novamente")
+export function handleError () { 
+    alert("Ocorreu um erro, tente novamente") 
+}
 
 const baseUrl = 'https://us-central1-missao-newton.cloudfunctions.net/generic/planner-mateus'
 
@@ -10,7 +12,7 @@ const setTasks = list => ({
 })
 
 export const fetchTasks = () => (dispatch) => {
-
+ 
     axios.get(
         baseUrl
     ).then(
@@ -20,7 +22,7 @@ export const fetchTasks = () => (dispatch) => {
     )
 }
 
-export const create = (newTask) => async (dispatch) => {
+export const create = (newTask) => (dispatch) => {
     axios.post(
         baseUrl,
         {
