@@ -1,0 +1,18 @@
+{
+  "name": "basiccalculator",
+  "version": "1.0.0",
+  "description": "Calculadora com as quatro operações matemáticas básicas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "calculadora"
+  ],
+  "author": "Mateus Gesualdo",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0"
+  }
+}
