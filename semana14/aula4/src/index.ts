@@ -3,25 +3,20 @@ import * as moment from 'moment'
 let fs = require('fs'),
     log = console.log,
     events: event[] = [],
+    currentTime: number = moment().unix(),
     newName: string = process.argv[4],
     newDescription: string = process.argv[5],
-    newDate = new Date(
-        Number(process.argv[6]),
-        Number(process.argv[7]) - 1,
-        Number(process.argv[8]),
-        Number(process.argv[9]) - 3,
-        Number(process.argv[10]),
-
-    ),
-    timeStamp: number = newDate.getTime()
+    newDate = moment( process.argv[6] , 'DD/MM/YYYY HH:mm')
+   
 
 type event = {
     name: string,
     description: string,
-    date: Date
+    date: any
 };
 
-if (newName && newDescription && newDate.getTime() > Date.now()) {
+if (newName && newDescription && newDate.unix() > currentTime ) {
+
     new Promise((resolve, reject) => {
         fs.readFile('events/index.json', (err: Error, events: Buffer) => {
             if (err) {
@@ -37,7 +32,7 @@ if (newName && newDescription && newDate.getTime() > Date.now()) {
                 {
                     name: newName,
                     description: newDescription,
-                    date: newDate
+                    date: newDate.format('DD/MM/YYYY HH:mm')
                 }
             ]
             fs.writeFileSync('events/index.json', JSON.stringify(events))
@@ -50,5 +45,5 @@ if (newName && newDescription && newDate.getTime() > Date.now()) {
 } else { 
     log('Error: Bad parameters.')  
     log('Please inform:')
-    log('event name, description and date ( year, month, day, hours, minutes ) ')    
+    log('event name, description and date ( e.g: "12/02/2020 12:30" ) ')    
 }
