@@ -1,0 +1,38 @@
+{
+    "dishes": [
+        {
+            "name": "Açaí",
+            "price": 7,
+            "cost": 2,
+            "ingredients": [
+                "creme de açaí",
+                "bananinha",
+                "leite condensado",
+                "granola"
+            ],
+            "timeToCook": 4,
+            "slicesNumber": 1
+        },
+        {
+            "name": "Feijoada",
+            "price": 36,
+            "cost": 14,
+            "ingredients": [
+                "feijão preto",
+                "linguiça",
+                "torresmo"
+            ],
+            "timeToCook": 28
+        },
+        {
+            "name": "Pão com ovo",
+            "price": 1.5,
+            "cost": 0.8,
+            "ingredients": [
+                "pão",
+                "ovo"
+            ],
+            "timeToCook": 3
+        }
+    ]
+}
