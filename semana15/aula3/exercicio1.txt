@@ -1,0 +1,5 @@
+A base de código do projeto é composta pela interface Client e pela classe abastrara Place, 
+que recebe um número de cpf e o extende às suas três subclasses: 
+Commerce, cujos membros também possuem nome e cnpj; 
+Industry,  cujos membros também possuem nome e um número de registro;
+e Residence, cujos membros também possuem nome e cpf.
