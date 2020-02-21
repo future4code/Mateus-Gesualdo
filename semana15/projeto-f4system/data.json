@@ -1,0 +1,35 @@
+[
+   {
+      "inicio": "21/02/2020",
+      "termino": "22/02/2020",
+      "professores": [
+         {
+            "nome": "Pardal",
+            "email": "profpardal@gmail.com",
+            "dataNascimento": "01/10/1970",
+            "especialidades": "back, react"
+         }
+      ],
+      "alunos": [
+         {
+            "nome": "huguinho",
+            "email": "huguinho@gmail.com",
+            "dataNascimento": "01/10/1990"
+         }
+      ],
+      "patrono": "Einstein"
+   },
+   {
+      "inicio": "21/02/2020",
+      "termino": "22/02/2020",
+      "professores": [],
+      "alunos": [
+         {
+            "nome": "zezinho",
+            "email": "zezinho@gmail.com",
+            "dataNascimento": "21/08/1980"
+         }
+      ],
+      "numero": 1
+   }
+]

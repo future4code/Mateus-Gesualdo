@@ -1,0 +1,21 @@
+{
+  "name": "oop",
+  "version": "1.0.0",
+  "module": "system",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nova-turma-web": "tsc && node build/index.js --target es6 nova-turma-web",
+    "nova-turma-mobile": "tsc && node build/index.js --target es6 nova-turma-mobile",
+    "novo-professor": "tsc && node build/index.js --target es6 novo-professor",
+    "novo-aluno": "tsc && node build/index.js --target es6 novo-aluno"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^12.12.14",
+    "chalk": "^3.0.0",
+    "moment": "^2.24.0"
+  }
+}
