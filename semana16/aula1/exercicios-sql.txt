@@ -1,0 +1,103 @@
+USE exercicios;
+
+DESCRIBE actors
+
+SELECT * FROM actors;
+
+SELECT first_name, last_name 
+FROM actors 
+WHERE last_name 
+LIKE '%a%';
+
+SELECT last_name 
+FROM actors 
+WHERE first_name = 'DAN'
+OR first_name = 'JULIA';
+
+SELECT first_name,last_name 
+FROM actors 
+WHERE first_name = 'ANGELINA'
+OR first_name LIKE '%b%';
+
+USE `bouman-mateus`;
+
+CREATE TABLE actors (
+    actor_id int PRIMARY KEY, 
+    first_name varchar(255) NOT NULL, 
+    last_name varchar(255) NOT NULL
+);
+
+DESCRIBE films;
+
+CREATE TABLE films (
+    film_id int PRIMARY KEY, 
+    title varchar(128) NOT NULL, 
+    description varchar(255) ,
+    release_year year(4),
+    length int,
+    rating enum('G','PG','PG-13','R','NC-17'),
+    special_features set('Trailers','Commentaries','Deleted Scenes','Behind the Scenes')
+);
+
+INSERT films VALUES (
+    1, 
+    "No coração do Mar", 
+    "A história do naufrágio que inspirou o conto 'Moby Dick' " ,
+    2015,
+    122,
+    'NC-17',
+    'Behind the Scenes'
+),(
+    2, 
+    "Pânico", 
+    NULL ,
+    1996,
+    111,
+    'NC-17',
+    'Behind the Scenes'
+),(
+    3, 
+    "Pânico 2", 
+    NULL ,
+    1997,
+    122,
+    'NC-17',
+    'Trailers'
+),(
+    4, 
+    "Pânico 3", 
+    NULL ,
+    2000,
+    117,
+    'NC-17',
+    'Behind the Scenes'
+),(
+    5, 
+    "Pânico 4", 
+    NULL ,
+    2011,
+    111,
+    'NC-17',
+    'Deleted Scenes'
+);
+
+SELECT * FROM films;
+
+SELECT title, description 
+FROM films
+WHERE length > 120;
+
+SELECT release_year, description, rating  
+FROM films
+WHERE description LIKE '%Documentary%';
+
+SELECT release_year, title, special_features  
+FROM films
+WHERE rating = 'R'
+AND title LIKE 'a%';
+
+SELECT * 
+FROM films
+WHERE special_features LIKE '%Trailers%'
+AND rating = 'PG-13'
+AND title LIKE '%d%';
