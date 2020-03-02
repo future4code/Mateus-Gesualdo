@@ -1,0 +1,17 @@
+[
+    {
+        "titular": {
+            "nome": "Batman",
+            "cpf": "123.456.789-01",
+            "nascimento": "01/01/1970"
+        },
+        "despesas": [
+            {
+                "valor": "1000000",
+                "descricao": "Pneus novos pro Batmóvel",
+                "data": "14/02/2020"
+            }
+        ],
+        "saldo": "84847727272"
+    }   
+]
