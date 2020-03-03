@@ -1,0 +1,72 @@
+SELECT * 
+FROM city
+ORDER BY Population DESC
+LIMIT 5;
+
+SELECT AVG(Population), district 
+FROM city
+GROUP BY District;
+
+SELECT COUNT(*), District
+FROM city
+GROUP BY District;
+
+SELECT COUNT(*), CountryCode
+FROM city
+GROUP BY CountryCode 
+ORDER BY COUNT(*) DESC
+LIMIT 10;
+
+SELECT *
+FROM country
+WHERE Population > 100000
+LIMIT 100;
+
+SELECT COUNT(*)
+FROM country
+WHERE Population > 5000000; 
+
+SELECT SUM(Population) AS "Soma de População"
+FROM country
+WHERE Continent = 'Asia';
+
+SELECT COUNT(*), GovernmentForm 
+FROM country
+WHERE GovernmentForm = 'Republic'
+OR GovernmentForm = 'Monarchy'
+GROUP BY GovernmentForm;
+
+SELECT COUNT(*), GovernmentForm 
+FROM country
+GROUP BY GovernmentForm
+ORDER BY COUNT(*) DESC
+LIMIT 1;
+
+SELECT AVG(Population), Continent 
+FROM country
+GROUP BY Continent;
+
+SELECT *
+FROM country
+ORDER BY IndepYear DESC
+LIMIT 10;
+
+SELECT AVG(LifeExpectancy), LOWER(Continent)
+FROM country
+GROUP BY Continent;
+
+SELECT SUM(SurfaceArea), Continent
+FROM country
+GROUP BY Continent
+ORDER BY SUM(SurfaceArea) DESC
+LIMIT 3; 
+
+ALTER TABLE films
+ADD watched bool NOT NULL DEFAULT false;
+
+UPDATE films
+SET watched = true
+WHERE rating = 'NC-13';
+
+UPDATE films
+SET lucky_number = FLOOR(RAND()*1000);
