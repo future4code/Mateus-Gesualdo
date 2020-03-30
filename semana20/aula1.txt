@@ -1,0 +1,27 @@
+EXERCÍCIO 1
+
+1. Imagino que a estratégia para subir para o EC2 um projeto já pronto seja usar o GitHub, 
+clonando o repositório do projeto.
+
+2. Projeto escolhido: 4eddit
+
+3. ~ssh -i first-ec2-app.pem ubuntu@54.165.130.243
+
+4. 
+    cd ..                                                                // volta para a área de trabalho
+    git clone https://github.com/future4code/4eddit-bouman-4.git         // clona o repositório remoto para a máquina
+    cd 4eddit-bouman-4                                                   // entra na pasta do projeto
+    npm install                                                          // instala as dependências necessárias
+    npm run start                                                        // inicializa o app na porta 3000
+
+6.
+    npm run build                                                        // cria a pasta de produção
+    cd build                                                             // entra na pasta build
+    sudo python -mSimpleHTTPServer 80                                    // inicializa a build na porta 80
+
+7. O fluxo foi idêntico ao da aula, com exceção do comando para clonar o repositório e das configurações que já estavam prontas e não precisaram ser repetidas.
+
+
+EXERCÍCIO 2
+
+No geral, o fluxo foi tranquilo. O tutorial é simples de entender, mas tive algumas dúvidas quanto às queries SQL pelo terminal.
