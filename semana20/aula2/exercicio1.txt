@@ -1,0 +1,51 @@
+a. Creio que não, entendi o que o código faz.
+
+b. 
+    {
+        statusCode: 400,
+        body: JSON.stringify({ message: "Missing input" })
+    }
+
+c. 
+    {
+        statusCode: 400,
+        body: JSON.stringify({ message: "Missing input" })
+    }
+
+d. 
+    {
+        statusCode: 400,
+        body: JSON.stringify({ message: "Missing email" })
+    }
+
+e.
+    {
+        statusCode: 400,
+        body: JSON.stringify({ message: "Invalid password" })
+    } 
+
+f. 
+    {
+        statusCode: 200,
+        body: JSON.stringify({
+            message: "User is correct"
+        })
+    }
+
+g.
+ 
+    if (!user.email) {
+        return {
+            statusCode: 400,
+            body: JSON.stringify({ message: "Missing email" })
+        };
+    } else if (!user.email.includes("@")) {
+        return {
+            statusCode: 422,
+            body: JSON.stringify({ message: "Invalid email" })
+        };
+    }
+
+h. O objeto de entrada deve conter uma chave "user" contendo uma chave "info" que, 
+por sua vez, contém as chaves "name", "email" (deve incluir o caracter '@') 
+e "password" (mínimo 6 caracteres).
