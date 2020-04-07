@@ -5,19 +5,27 @@ import { routes } from '../Router'
 import { FlexContainer } from '../../style/FlexContainer';
 import { Form } from '../../components/Form';
 import { Button } from '@material-ui/core';
-import logo from '../../images/logo.png'
 
-const Login = props => {
+const Signup = props => {
 
+    const [name, setName] = React.useState()
     const [email, setEmail] = React.useState()
     const [password, setPassword] = React.useState()
+    const [birthDate, setBirthDate] = React.useState()
+    const [profilePicture, setProfilePicture] = React.useState()
+
     const handleFormSubmission = ev => {
         ev.preventDefault()
         console.log(email, password)
     }
 
     return <FlexContainer>
-        <Form onSubmit={handleFormSubmission} buttonText="Entrar" fields={[
+        <Form onSubmit={handleFormSubmission} buttonText="Criar Conta" fields={[
+            {
+                "label": "nome",
+                "value": name,
+                "onChange": ev => setName(ev.target.value)
+            },
             {
                 "label": "email",
                 "type": "email",
@@ -29,17 +37,25 @@ const Login = props => {
                 "type": "password",
                 "value": password,
                 "onChange": ev => setPassword(ev.target.value)
+            },
+            {
+                "label": "data de nascimento",
+                "type": "date",
+                "value": birthDate,
+                "onChange": ev => setBirthDate(ev.target.value)
+            },
+            {
+                "label": "foto de perfil",
+                "value": profilePicture,
+                "onChange": ev => setProfilePicture(ev.target.value)
             }
         ]} />
-
-        <Button variant="contained" color="secondary" onClick={() => props.goToSignup()}>Cadastrar</Button>
 
     </FlexContainer>
 }
 
 const mapDispatchToProps = dispatch => ({
     goHome: () => dispatch(push(routes.root)),
-    goToSignup: () => dispatch(push(routes.signup))
 })
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(null, mapDispatchToProps)(Signup)
