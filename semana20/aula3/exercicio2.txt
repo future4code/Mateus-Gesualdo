@@ -1,0 +1,14 @@
+// link
+
+https://o54c1vhupk.execute-api.us-east-1.amazonaws.com/v1/products
+
+
+// body
+
+{
+    "name": "Fusca",
+	"picture": "picsum.photos/260",
+	"price":50000
+}
+
+// método: POST
