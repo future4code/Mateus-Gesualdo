@@ -3,11 +3,13 @@ import { ConnectedRouter } from "connected-react-router";
 import { Switch, Route } from "react-router-dom";
 import Home from "../Home";
 import Login from "../Login";
+import Signup from "../Signup";
 
 
 export const routes = {
   root: '/',
-  login: '/users/login'
+  login: '/users/login',
+  signup: '/signup'
 };
 
 function Router(props) {
@@ -16,6 +18,7 @@ function Router(props) {
       <Switch>
         <Route exact path={routes.root} component={Home} />
         <Route exact path={routes.login} component={Login} />
+        <Route exact path={routes.signup} component={Signup} />
       </Switch>
     </ConnectedRouter>
   );
