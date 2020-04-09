@@ -1,15 +1,12 @@
 import express, { Request, Response } from 'express'
-import MainDB from '../data/MainDatabase'
+import signupEndpoint from './endpoints/users/signupEndpoint'
 
 const app = express()
-app.use(express.json())
+const cors = require("cors")
 
-app.get('/', async (req:Request, res:Response)=>{
-    res.send(
-        (await new MainDB().connection.raw(
-        `select * from future_tube_videos`
-    ))[0][0]
-    )
-})
+app.use(express.json())
+app.use(cors())
+
+app.post('/users/signup', signupEndpoint)
 
 export default app

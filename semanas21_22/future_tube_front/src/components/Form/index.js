@@ -12,9 +12,10 @@ const StyledForm = styled.form`
     background-color: whitesmoke;
 `
 
-export const Form = props => <StyledForm>
+export const Form = props => <StyledForm onSubmit={props.onSubmit}>
 
     {props.fields.map(field => <TextField
+        required
         variant="filled"
         type={field.type}
         label={field.label}
@@ -23,6 +24,6 @@ export const Form = props => <StyledForm>
         onChange={field.onChange}
     />)}
 
-    <Button color="primary" variant="contained">{props.buttonText}</Button>
+    <Button type="submit" color="primary" variant="contained">{props.buttonText}</Button>
 
 </StyledForm>

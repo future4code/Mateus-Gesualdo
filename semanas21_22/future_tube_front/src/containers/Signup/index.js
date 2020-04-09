@@ -4,7 +4,7 @@ import { push } from 'connected-react-router'
 import { routes } from '../Router'
 import { FlexContainer } from '../../style/FlexContainer';
 import { Form } from '../../components/Form';
-import { Button } from '@material-ui/core';
+import { signup } from '../../actions/users';
 
 const Signup = props => {
 
@@ -16,7 +16,13 @@ const Signup = props => {
 
     const handleFormSubmission = ev => {
         ev.preventDefault()
-        console.log(email, password)
+        props.signup({
+            name,
+            email,
+            password,
+            birthDate,
+            profilePicture
+        })
     }
 
     return <FlexContainer>
@@ -56,6 +62,7 @@ const Signup = props => {
 
 const mapDispatchToProps = dispatch => ({
     goHome: () => dispatch(push(routes.root)),
+    signup: newUser => dispatch(signup(newUser))
 })
 
 export default connect(null, mapDispatchToProps)(Signup)

@@ -5,12 +5,12 @@ import { routes } from '../Router'
 import { FlexContainer } from '../../style/FlexContainer';
 import { Form } from '../../components/Form';
 import { Button } from '@material-ui/core';
-import logo from '../../images/logo.png'
 
 const Login = props => {
 
     const [email, setEmail] = React.useState()
     const [password, setPassword] = React.useState()
+
     const handleFormSubmission = ev => {
         ev.preventDefault()
         console.log(email, password)
