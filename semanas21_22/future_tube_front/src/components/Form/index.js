@@ -4,10 +4,11 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 const StyledForm = styled.form`
+    width: 300px;
+    margin: 1em auto;
     display: grid;
     grid-gap: 5px;
     padding: 5px;
-    margin: 1em;
     border-radius: 5px;
     background-color: whitesmoke;
 `

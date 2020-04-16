@@ -1,8 +1,6 @@
 import UserDB from "../../../data/userDatabase";
 import User from "../../entities/user";
 import { v4 } from "uuid";
-import * as jwt from 'jsonwebtoken'
-import * as bcrypt from 'bcrypt'
 
 interface SingupUCInput {
     name: string,
@@ -17,10 +15,8 @@ export default class SignupUC {
 
     async execute(input: SingupUCInput) {
 
-        const id = v4()
-
-        const rounds = 10
-        const hashPassword = await bcrypt.hash(input.password, rounds)
+        const id = v4()        
+        const hashPassword = await User.encryptPassword(input.password)
 
         await this.database.signup(new User(
             id,
@@ -29,18 +25,16 @@ export default class SignupUC {
             hashPassword,
             input.birthDate,
             input.profilePicture
-        ))
-
-        const jwtKey = process.env.JWT_KEY as string
-        const token = jwt.sign(
-            { id },
-            jwtKey,
-            { expiresIn: "1h" }
-        )
+        ))        
 
         return {
             message: "Usuário criado!",
-            token
+            token: User.generateToken(id),
+            user:{
+                id,
+                name: input.name,
+                profilePicture: input.profilePicture
+            }
         }
     }
 }

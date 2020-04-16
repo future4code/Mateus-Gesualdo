@@ -7,7 +7,7 @@ export default createMuiTheme({
       main: '#8b0000'
     },
     secondary: {
-      main: '#f0f8ff'
+      main: '#ededed'
     }
   },
 });
