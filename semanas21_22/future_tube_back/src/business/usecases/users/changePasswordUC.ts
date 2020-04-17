@@ -16,10 +16,10 @@ export default class ChangePasswordUC {
 
         const user = await this.database.getUser(userId)
 
-        const passwordIsCorrect = await User.checkPassword(input.currentPassword, user.password)
+        const passwordIsCorrect = User.checkPassword(input.currentPassword, user.password)
 
         if (passwordIsCorrect) {
-            const hashPassword = await User.encryptPassword(input.newPassword)
+            const hashPassword = User.encryptPassword(input.newPassword)
             await this.database.changePassword(userId, hashPassword)
         } else {
             throw new Error("Senha incorreta")

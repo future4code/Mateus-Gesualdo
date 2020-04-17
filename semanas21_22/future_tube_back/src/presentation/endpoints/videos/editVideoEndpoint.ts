@@ -8,7 +8,7 @@ export default async function editVideoEndpoint(req: Request, res: Response) {
         const uc  = new EditVideoUC(db)
         
         await uc.execute({
-            token: req.headers.auth as string,
+            token: req.headers.Authorization as string,
             videoId: req.body.videoId,
             newTitle: req.body.newTitle,
             newDescription: req.body.newDescription

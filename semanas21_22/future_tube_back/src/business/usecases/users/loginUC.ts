@@ -1,13 +1,11 @@
 import UserDB from "../../../data/userDatabase";
-import * as bcrypt from 'bcrypt'
-import * as jwt from 'jsonwebtoken'
 import User from "../../entities/user";
 
 export default class LoginUC {
     constructor(private database: UserDB) { }
 
     async execute(token?: string,email?: string, password?: string) {
-
+        
         let user
 
         if(token){
@@ -22,7 +20,7 @@ export default class LoginUC {
     
             user = await this.database.getUser(email)
     
-            const passwordIsCorrect = await User.checkPassword(password, user.password)
+            const passwordIsCorrect = User.checkPassword(password, user.password)
     
             if (!passwordIsCorrect) {            
                 throw new Error("Usuário ou senha incorretos")

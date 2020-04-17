@@ -8,7 +8,7 @@ export default async function uploadVideoEndpoint(req: Request, res: Response) {
         const uc  = new UploadVideoUC(db)
         
         await uc.execute({
-            token: req.headers.auth as string,
+            token: req.headers.Authorization as string,
             title: req.body.title,
             description: req.body.description,
             url: req.body.url

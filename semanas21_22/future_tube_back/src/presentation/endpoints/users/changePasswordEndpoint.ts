@@ -9,7 +9,7 @@ async function changePasswordEndpoint(req:Request, res:Response){
         const uc = new ChangePasswordUC(db)
 
         const data = await uc.execute({
-            token: req.headers.auth as string,
+            token: req.headers.Authorization as string,
             currentPassword: req.body.currentPassword,
             newPassword: req.body.newPassword
         })

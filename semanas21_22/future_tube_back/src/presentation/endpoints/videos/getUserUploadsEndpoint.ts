@@ -8,7 +8,7 @@ export default async function getUserUploadsEndpoint(req: Request, res: Response
         const uc = new getUserUploadsUC(db)
 
         const data = await uc.execute({
-            token: req.headers.auth as string,
+            token: req.headers.Authorization as string,
             userId: req.query.user as string
         })
 

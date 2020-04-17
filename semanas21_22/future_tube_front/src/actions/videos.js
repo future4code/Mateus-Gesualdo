@@ -3,6 +3,8 @@ import { routes } from '../containers/Router'
 import { push } from 'connected-react-router'
 import { highlightUser } from './users'
 
+const baseUrl = "https://93gwg8jly6.execute-api.us-east-1.amazonaws.com/v1"
+
 export function storeVideos(videos) {
     return ({
         type: 'STORE_VIDEOS',
@@ -25,7 +27,7 @@ export const updatePageNumber = newPageNumber => ({
 export const getAllVideos = (page) => dispatch => {
 
     axios
-        .get(`http://localhost:3000/videos/all?page=${page}`)
+        .get(`${baseUrl}/videos/all?page=${page}`)
         .then(res => {
             dispatch(storeVideos(res.data.videos))
         })
@@ -36,7 +38,7 @@ export const getAllVideos = (page) => dispatch => {
 
 export const highlightVideo = (id) => dispatch => {
     axios
-        .get(`http://localhost:3000/videos/${id}`)
+        .get(`${baseUrl}/videos/${id}`)
         .then(res => {
             dispatch(storeHighlightedVideo({
                 id: res.data.id,
@@ -55,7 +57,7 @@ export const highlightVideo = (id) => dispatch => {
 
 export const getUserUploads = (id) => dispatch => {
     axios
-        .get(`http://localhost:3000/videos?user=${id}`)
+        .get(`${baseUrl}/videos?user=${id}`)
         .then(res => {
             dispatch(storeVideos(res.data.videos))
             dispatch(push(routes.root))
@@ -67,10 +69,10 @@ export const getUserUploads = (id) => dispatch => {
 
 export const deleteVideo = id => dispatch => {
     const token = window.localStorage.getItem("token")
-    const headers = { auth: token }
+    const headers = { Authorization: token }
 
     axios
-        .delete(`http://localhost:3000/videos/${id}`, { headers })
+        .delete(`${baseUrl}/videos/${id}`, { headers })
         .then(() => dispatch(getUserUploads(id)))
         .catch(err => alert(err.message))
 
@@ -79,11 +81,11 @@ export const deleteVideo = id => dispatch => {
 export const uploadVideo = video => dispatch => {
 
     const token = window.localStorage.getItem("token")
-    const headers = { auth: token }
+    const headers = { Authorization: token }
 
     axios
         .post(
-            "http://localhost:3000/videos/upload",
+            `${baseUrl}/videos/upload`,
             video,
             { headers }
         )

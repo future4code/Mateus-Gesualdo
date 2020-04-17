@@ -16,7 +16,7 @@ export default class SignupUC {
     async execute(input: SingupUCInput) {
 
         const id = v4()        
-        const hashPassword = await User.encryptPassword(input.password)
+        const hashPassword = User.encryptPassword(input.password)
 
         await this.database.signup(new User(
             id,

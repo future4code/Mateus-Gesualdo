@@ -1,4 +1,3 @@
-import * as bcrypt from 'bcrypt'
 import * as jwt from 'jsonwebtoken'
 
 export default class User {
@@ -35,16 +34,24 @@ export default class User {
         return tokenData
     }
 
-    static async encryptPassword(password: string) {
-        const rounds = 10
-        const hashPassword = await bcrypt.hash(password, rounds)
+    static encryptPassword(password: string) {
 
-        return hashPassword
+        const jwtKey = process.env.JWT_KEY as string
+        const token = jwt.sign(
+            { password },
+            jwtKey,
+            { expiresIn: "2400000000000000000000000000000h" }
+        )
+        return token
+
     }
 
-    static async checkPassword(password: string, hashPassword: string) {
-        const passwordIsCorrect = await bcrypt.compare(password, hashPassword)
+    static checkPassword(password: string, hashPassword: string) {
 
-        return passwordIsCorrect
+        const jwtKey = process.env.JWT_KEY as string
+        const tokenData = jwt.verify(hashPassword, jwtKey) as { password: string }
+
+        return (tokenData.password === password)
+
     }
 }
