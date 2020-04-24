@@ -1,0 +1,51 @@
+/* EXERCÍCIO 1
+ *
+ * No pior caso, o código percorre todos os caracteres da string dada.
+ * Logo, seu tempo de execução é O(n).
+*/
+
+/* EXERCÍCIO 2
+ *
+ * O código percorre todos os caracteres de uma das strings dadas.
+ * Logo, seu tempo de execução é O(n).
+*/
+
+/* EXERCÍCIO 3
+ *
+ * O código sempre executa apenas uma linha de duas possíveis.
+ * Logo, seu tempo de execução é O(1).
+*/
+
+/* EXERCÍCIO 4
+ *
+ * O código precisa comparar todos os elementos do array entre si.
+ * Caso ele possua, por exemplo, 10 números, cada um desses 10
+ * terá de ser comparado aos outros 9, resultando em um
+ * tempo de execução de O(n²).
+*/
+
+/* EXERCÍCIO 5
+ *
+ * replaceMatrixValue > findFirstRecurringCharacter = func > verifyIfExistRepeatedNumbers
+*/
+
+/* EXERCÍCIO 6
+ *
+ * O código executa o loop um número de vezes igual a b.
+ * Logo, seu tempo de execução é O(b).
+*/
+
+/* EXERCÍCIO 7
+ *
+ * O código sempre executa uma ou duas linhas,
+ * dependendo dos valores de entrada.
+ * Logo, seu tempo de execução é O(1).
+*/
+
+/* EXERCÍCIO 8
+ *
+ * A função appendToNew tem complexidade O(n).
+ * A função copyArray, que itera sobre a anterior,
+ * deve ter complexidade O(n²).
+ *
+*/
